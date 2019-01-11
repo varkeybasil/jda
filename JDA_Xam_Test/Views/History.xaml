@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:converters="clr-namespace:JDA_Xam_Test.Converters" xmlns:viewModels="clr-namespace:JDA_Xam_Test.ViewModels" x:Class="JDA_Xam_Test.Views.History">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <viewModels:HistoryViewModel x:Key="HistoryViewModel" />
+            <converters:LeaveTypeConverter x:Key="LeaveTypeConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="listView" ItemsSource="{Binding Source={StaticResource HistoryViewModel},Path=LeaveList }" CachingStrategy="RecycleElement" HasUnevenRows="True" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="10">
+                                <Frame CornerRadius="10" OutlineColor="Teal" Padding="0">
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <BoxView Color="{Binding Status,Converter={StaticResource LeaveTypeConverter}}" WidthRequest="5">
+                                        </BoxView>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="5">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding Type}" HorizontalOptions="StartAndExpand">
+                                                </Label>
+                                                <Label Text="{Binding NoOfLeaves}" HorizontalOptions="EndAndExpand">
+                                                </Label>
+                                            </StackLayout>
+                                            <BoxView HeightRequest="1" Color="Silver" />
+                                            <StackLayout Orientation="Horizontal">
+                                                <StackLayout HorizontalOptions="StartAndExpand">
+                                                    <Label Text="From">
+                                                    </Label>
+                                                    <Label Text="{Binding FromDate , StringFormat='{0:dd MMM yyyy}'}" />
+                                                </StackLayout>
+                                                <StackLayout HorizontalOptions="EndAndExpand">
+                                                    <Label Text="To">
+                                                    </Label>
+                                                    <Label Text="{Binding ToDate , StringFormat='{0:dd MMM yyyy}'}" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
