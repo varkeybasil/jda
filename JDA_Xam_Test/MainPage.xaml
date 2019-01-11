@@ -1,7 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:JDA_Xam_Test" x:Class="JDA_Xam_Test.MainPage">
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-</ContentPage>
+<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:views="clr-namespace:JDA_Xam_Test.Views" 
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            xmlns:local="clr-namespace:JDA_Xam_Test"
+            x:Class="JDA_Xam_Test.MainPage"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+            ios:Page.UseSafeArea="true">
+    <NavigationPage.TitleView >
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Text="EMP24012" Style="{StaticResource labelwhiteboldStyle}">
+                    </Label>
+                 <Label Text="John Doe" Style="{StaticResource labelwhiteStyle}">
+                    </Label>
+                </StackLayout>
+          
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <views:Summary Title="Summary" />
+    <views:History Title="History"  />
+</TabbedPage>

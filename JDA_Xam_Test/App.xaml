@@ -1,5 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JDA_Xam_Test.App">
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="JDA_Xam_Test.App"  
+           >
     <Application.Resources>
+        <Style x:Key="labelboldStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="Black" />
+        </Style>
+        <Style x:Key="labelwhiteboldStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style x:Key="labelwhiteStyle" TargetType="Label">
+           
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+      
+        <Style x:Key="labelStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="Gray" />
+        </Style>
+        <Style x:Key="labelTealStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#2d8a8e" />
+        </Style>
+         <Style x:Key="labellargerStyle" TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style x:Key="roundFrameStyle" TargetType="Frame">
+            <Setter Property="BorderColor" Value="Gray" />
+            <Setter Property="CornerRadius" Value="30" />
+            <Setter Property="HeightRequest" Value="30" />
+            <Setter Property="WidthRequest" Value="30" />
+            <Setter Property="Margin" Value="0,10" />
+            <Setter Property="Padding" Value="0" />
+           
+        </Style>
+        
     </Application.Resources>
 </Application>

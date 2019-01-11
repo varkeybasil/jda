@@ -4,10 +4,39 @@
         <ResourceDictionary>
             <viewModels:HistoryViewModel x:Key="HistoryViewModel" />
             <converters:LeaveTypeConverter x:Key="LeaveTypeConverter" />
+            <converters:LeaveNoConverter x:Key="LeaveNoConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="White">
+            <StackLayout  Orientation="Horizontal" BackgroundColor="#f7f7f7" Padding="10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="StartAndExpand" >
+                    <Frame CornerRadius="20" HeightRequest="20" WidthRequest="20"  Padding="0" OutlineColor="#2d8a8e" >
+                        <BoxView HeightRequest="20" WidthRequest="20" BackgroundColor="#2d8a8e" >
+                            </BoxView>
+                        </Frame>
+                       
+                    <Label Text="Approved"  Style="{StaticResource labelStyle  }">
+                        </Label>
+                    </StackLayout>
+                
+                 <StackLayout  Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                     <Frame CornerRadius="20" HeightRequest="20" WidthRequest="20"  Padding="0" OutlineColor="#2d8a8e" >
+                        <BoxView HeightRequest="20" WidthRequest="20" BackgroundColor="#fc393e" >
+                            </BoxView>
+                        </Frame>
+                    <Label Text="Rejected"  Style="{StaticResource labelStyle  }">
+                        </Label>
+                    </StackLayout>
+                 <StackLayout  Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                     <Frame CornerRadius="20" HeightRequest="20" WidthRequest="20"  Padding="0" OutlineColor="#2d8a8e" >
+                        <BoxView HeightRequest="20" WidthRequest="20" BackgroundColor="#4696cf" >
+                            </BoxView>
+                        </Frame>
+                    <Label Text="Pending"  Style="{StaticResource labelStyle  }">
+                        </Label> 
+                    </StackLayout>
+                </StackLayout>
             <ListView x:Name="listView" ItemsSource="{Binding Source={StaticResource HistoryViewModel},Path=LeaveList }" CachingStrategy="RecycleElement" HasUnevenRows="True" SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -15,31 +44,31 @@
                             <StackLayout Margin="10">
                                 <Frame CornerRadius="10" OutlineColor="Teal" Padding="0">
                                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                        <BoxView Color="{Binding Status,Converter={StaticResource LeaveTypeConverter}}" WidthRequest="5">
+                                        <BoxView Color="{Binding Status,Converter={StaticResource LeaveTypeConverter}}" WidthRequest="10">
                                         </BoxView>
                                         <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Margin="5">
                                             <StackLayout Orientation="Horizontal">
-                                                <Label Text="{Binding Type}" HorizontalOptions="StartAndExpand">
+                                                <Label Text="{Binding Type}" HorizontalOptions="StartAndExpand" Style="{StaticResource labelboldStyle}">
                                                 </Label>
-                                                <Label Text="{Binding NoOfLeaves}" HorizontalOptions="EndAndExpand">
+                                                <Label Text="{Binding NoOfLeaves, Converter={StaticResource LeaveNoConverter}}" HorizontalOptions="EndAndExpand" Style="{StaticResource labelboldStyle}">
                                                 </Label>
                                             </StackLayout>
                                             <BoxView HeightRequest="1" Color="Silver" />
                                             <StackLayout Orientation="Horizontal">
                                                 <StackLayout HorizontalOptions="StartAndExpand">
-                                                    <Label Text="From">
+                                                    <Label Text="From" Style="{StaticResource labelStyle  }">
                                                     </Label>
-                                                    <Label Text="{Binding FromDate , StringFormat='{0:dd MMM yyyy}'}" />
+                                                    <Label Text="{Binding FromDate , StringFormat='{0:dd MMM yyyy}'}" Style="{StaticResource labelboldStyle}"/>
                                                 </StackLayout>
                                                 <StackLayout HorizontalOptions="EndAndExpand">
-                                                    <Label Text="To">
+                                                    <Label Text="To" HorizontalOptions="EndAndExpand">
                                                     </Label>
-                                                    <Label Text="{Binding ToDate , StringFormat='{0:dd MMM yyyy}'}" />
+                                                    <Label Text="{Binding ToDate , StringFormat='{0:dd MMM yyyy}'}" Style="{StaticResource labelboldStyle}" />
                                                 </StackLayout>
                                             </StackLayout>
                                         </StackLayout>
                                     </StackLayout>
-                                </Frame>
+                                </Frame>       
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

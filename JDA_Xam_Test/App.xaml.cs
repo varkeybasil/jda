@@ -11,7 +11,7 @@ namespace JDA_Xam_Test
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Teal };
+            MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.FromHex("#2d8a8e") };
         }
 
         protected override void OnStart()

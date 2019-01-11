@@ -7,11 +7,12 @@ using Xamarin.Forms;
 
 namespace JDA_Xam_Test
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
         public MainPage()
         {
             InitializeComponent();
+           
         }
     }
 }
